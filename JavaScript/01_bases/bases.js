@@ -301,3 +301,234 @@ if (varA === varB){
 } else {
     document.write('Différences en valeur OU en type <br>');
 }
+
+// ---------
+// La condition dite ternaire :
+// La condition ternaire est une autre syntaxe de la condition if... else.
+var voiture = 'bmw';
+var origine = (voiture == 'bmw')? 'origine allemande <br>' : 'autre origine <br>'; //la condition ternaire s'écrit avec un "?" qui remplace le if, et un ":" qui remplace le else
+
+document.write(origine);
+
+// var origine2 = prompt('Entrez la marque de votre voiture ?');
+// if ( origine2 == voiture ) {
+//     alert('votre voiture est d\'origine Allemande')
+// } else {
+//     alert('Je ne connais pas l\'origine de votre voiture désolé');
+// }
+
+// ---------
+// isNaN : is not a number
+// NaN pour Not a Number est une valeur utilisée pour representer une "quantité" qui n'est pas un nombre en javascript.
+console.log( 2 * 'azerty');
+
+// Les opérateurs d'égalité (== ou ===) ne peuvent pas être utilisés poir tester si une valeur est NaN. il faut utiliser isNaN() :
+
+var annee = '2018'; // string
+if ( isNaN(annee) ) {
+    // condition fausse car 2018 après conversion devient un number. On entre donc dans le else.
+    document.write('ce n\'est pas un number après conversion <br>');
+} else {
+    document.write('c\est un number après conversion <br>');
+}
+
+// le contraire :
+var annee = 'juin 2018'; // string
+
+if ( isNaN(annee) ) {
+    // ici la condition est vraie . on entre donc ici :
+    document.write('ce n\'est pas un number après conversion <br>');
+} else {
+    document.write('c\est un number après conversion <br>');
+}
+
+// ---------
+// Exercice :
+/* 
+Demandez l'âge de l'internaute dans un prompt.
+Si la réponse est vide (on compare avec des quotes vides SANS espace), on affiche "vous n'avez pas répondu."
+Si la réponse n'est pas un number ,  on affiche "vous n'avez pas indiqué un nombre."
+Si la répoinse est correcte, on affiche "vous avez indiqué avoir X ans" ou "X est l'âge de l'internaute".
+*/
+
+var age = prompt('Quel âge avez-vous ?');
+
+if ( age == '' ){
+    document.write('vous n\'avez pas répondu.');
+} else if ( isNaN(age) ) {
+    document.write('vous n\'avez pas indiqué un nombre.')
+} else {
+    document.write('vous avez ' + age + ' ans.');
+}
+
+// -----------------------
+// 9- Synthèse des opérateurs 
+//------------------------
+document.write('<h2>9- Synthèse des opérateurs </h2>');
+
+// Pour tester dees variables entre-elles :
+/*
+    ==  Pour égal en valeur
+    != pour différent de en avleur
+
+    === pour strictement égal en valeur ET en type
+    !== pour strictement différent en valeur ET en type
+    
+    > pour plus grand que 
+    > pou plus petit que
+    >= pour supérieur ou égal
+    <= pour inférieur ou égal
+
+*/
+//  les opérateurs logiques :
+/*
+    && pour AND
+    || pour OR
+    ! pour NOT (négation)
+
+
+    Les opérations effectués avec les opérateurs logiques ne donnet que 2 résultats possibles : TRUE ou FALSE.
+
+    Exemples :
+    true && true => true
+    false && true => false
+    false && false => false
+
+    true || true => true
+    true || false => true
+    false || false => false
+
+    !TRUE => false
+    !FALSE => true
+
+*/
+
+// -----------------------
+// 10- Condition switch 
+//------------------------
+document.write('<h2>10- Condition switch </h2>');
+// La condition switch est une autre syntaxe pour écrire une condition if...else, lorsque l'on veut comperer une variable à une multitude de valeurs.
+
+var couleur = 'jaune';
+
+switch (couleur){
+    case 'bleu' :   // chaque case représente une valeur que peut prendre la variable. Si couleur contient "bleu" on exécute le code suivant :
+        document.write('Vous aimez le bleu <br>');
+    break;  // obligatoire pour quitter la condition une fois la case exécuté
+    case 'rouge' : 
+        document.write('Vous aimez le rouge <br>');
+    break;
+    case 'vert' : 
+        document.write('Vous aimez le vert <br>');
+    break;
+    default :  // on tombe dans default par défault si aucun cas précédent n'est valide
+    document.write('Vous n\'aimez aucune de ces couleurs');
+    break;
+}
+
+// -----------------------
+// 11- Les boucles 
+//------------------------
+document.write('<h2>11- Les boucles </h2>');
+// Les boucles sont destinés à répéter des lignes de codes de façon automatique.
+
+// While :
+var i = 0;  // on initialise une variable à 0 pour compter le nombre de tours de boucle
+
+while ( i <= 5) { // ici entre parenthes se situe la condition d'entrée dans la boucle "while". Elle signifie "tant que i est inférieur ou égal à 5"
+    document.write(i + '---');
+    // ...
+    i++;  // on incrémente i de +1
+}
+document.write('<hr>');
+// Exercice : sans modifier la condition de la boucle while précédente, vous la complétez pour ne pas afficher les trois petitd "---" après le 5
+
+var i = 0;
+while ( i <= 5) { // ici entre parenthes se situe la condition d'entrée dans la boucle "while". Elle signifie "tant que i est inférieur ou égal à 5"
+   if (i == 5){
+       document.write(i)
+   } else {
+       document.write(i + '---')
+   }
+   i++;
+}
+document.write('<hr>');
+// ---------
+// La boucle for :
+// La boucle for est une autre syntaxe encore de la boucle while :
+for(var i = 0; i <= 5; i++){  // on met dans les () du for : initialisation de la variable suivi d'un ";", puis la condition d'entrée dans la boucle suivi d'un ";", puis l'incrémentation ou décrémentation NON suivi d'un ";".
+    document.write(i + '---');
+// ...
+}
+
+// ---------
+// Exercice : afficher un menu déroulant avec les années 1900 à 2020.
+
+document.write('<select>');
+    // document.write('<option>1900</option>'); 
+    for(var i = 1900; i <= 2020; i++){
+        document.write('<option>' + i + '</option>')
+    }
+    // document.write('<option>2020</option>'); 
+
+document.write('</select>');
+
+// Alternative :
+var affichage = '';  // pour contenir toutes les balises HTML à venir
+
+affichage += '<select>';
+    for(var i = 1900; i <= 2020; i++){
+        affichage +='<option>' + i + '</option>';
+    }
+
+affichage +='</select>';
+
+console.log(affichage);
+
+document.write(affichage);  // on affiche tout le sting qui contient l'ensembles des balises du sélecteur
+
+// La boucle do...while existe aussi. Elle a la particularité de s'éxecuter au moins une fois (correspondant au "do"), puis seulement à la fin on regarde la condition du while pour savoir si on retourne dans la boucle ou pas. Exemple d'utilisation : Vous posez une question obligatoire à l'internaute ("do"), puis tant qu'il n'a pas correctement répondu ("while"), vous lui reposez la question.
+
+// -----------------------
+// 12- Les fonctions utilisateurs 
+//------------------------
+document.write('<h2>12- Les fonctions utilisateurs </h2>');
+
+// Les fonctions sont des morceaux de codes encapsulés dans des accolades et portant un nom. Elles sont appelées (par leur nom) quand on a besoin d'exécuter tout le code qui s'y trouve. Il est d'usage de faire des fonctions simples qui réalisent des actions unitaires.
+
+// A chaque fois qu'on répéte une action, voir s'il n'est pas possibles de la mettre dans une fonction : cela s'appelle factoriser son code.
+
+// Il existe 2 façons de déclarer une fonction en JavaScript
+// 1° Avec le mot clé function :
+function maFonction () {
+    // ici tout votre code 
+    document.write('<p>Nous avons une journée ensoleillée</p>')
+} 
+
+// 2° Avec le mot clé var :
+var maFonction2 = function () {
+    // ici tout votre code
+    document.write('<p>Nous avons une chaude journée'); 
+}
+
+// Puis pour qu'une fonction s'exécute, il faut l'appeler :
+
+maFonction();  // on appelle une fonction en écrivant son nom suivi d'une paire de parenthèses.
+maFonction2();  // en appelant cette fonction, j'exécute le code qui s'y trouve.
+
+// Par convention nous déclarons toujours une fonction avant de l'exécuter. 
+
+// ---------
+// Fonctions avec paramètres :
+function direBonjour(prenom, nom) {  // prenom et nom sont des paramètres de la fonction, séparés par une virgule et qui attendent une valeur
+    document.write('<p>Bonjour ' + prenom + ' ' + nom + ', comment allez-vous ?</p>');
+}
+direBonjour('Alice', 'Dupont');  // la valeur "Alice" qui est en 1ère position va être affectée au paramètre prénom et la valeur "Dupont" va être affectée au paramètre nom. Ainsi la fonction direBonjour peut afficher un message personnalisé.
+
+
+// ---------
+function d (param){
+    document.write(param + '<br>');
+}
+
+d('Helooowww !!!');
