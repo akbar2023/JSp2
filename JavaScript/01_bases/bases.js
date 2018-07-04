@@ -531,4 +531,238 @@ function d (param){
     document.write(param + '<br>');
 }
 
-d('Helooowww !!!');
+d('Test de notre fonction');
+
+// ---------
+//  Préambule à l'exercice :
+
+function meteo(saison){
+    d('Nous sommes en ' + saison);  // nous avons la possibilité d'utiliser une autre fonction, ici (d) dans les instructions de cette fonction.
+}
+
+meteo('été');
+meteo('Printemps');
+
+document.write('<hr>');
+// Exercice : réécrivez la fonction précédente dans une fonction exoMeteo, et complétez la pour qu'elle affiche 'au printemps', "en été", "en automne" ou "en hiver". Dans cet exercice, vous ne modifiez pas le paramètre saison et vous n'en ajoutez pas.
+
+function exoMeteo(saison){
+    if (saison == 'printemps') {
+        d('Nous sommes au ' + saison + '.');
+    }else if (saison == 'été' || saison == 'automne' || saison == 'hiver') { 
+        d('Nous sommes en ' + saison + '.');
+    } else{
+        d(saison + '? ce n\'est peut-être pas une saison...');
+    }
+} 
+
+exoMeteo('été');
+exoMeteo('printemps');
+exoMeteo('Papaoumar');
+
+// ---------
+// Le mot clé "return" qui permet de sotir une valeur d'une fonction :
+function somme (a, b) {
+    var resultat = a + b;
+    return resultat;  // return permet de sortir la valeur de résultat de la fonction. il retourne cette valeur à l'endroit où la fonction est appelée
+}
+
+d('La somme de 2 + 4 est égal à ' + somme(2 , 4));  // On récupère ic la valeur 6 de resultat grâce grâce au return qui se trouve dans la fonction somme()
+
+
+// -----------------------
+// 13- La portée des variables 
+//------------------------
+document.write('<h2>13- La portée des variables </h2>');
+
+/*  Selon l'endroit et la façon dont une variable est déclarée, elle pourra être accessible partout dans le script ou uniquement dans une portion limitée du code des fonctions. On parle de protée des variables (Scope en anglais).
+
+-Une variable déclarée SANS le mot clé "var" (façon implicite) : elle est accessible PARTOUT dans le script, y compris au sein des fonctions : elle est dite GLOBAL
+
+-Une variable déclarée AVEC le mot clé "var" (façon explicite) : 
+        - à l'extérieur d'une fonction elle sera GLOBAL, donc accessible partout dans le script, y compris au sein des fonctions
+        - à l'intérieur d'une fonction elle sera LOCALE, donc accessible qu'au sein de la fonction.
+
+*/
+
+var animal = 'Loup';  //global
+function jungle() {
+    var animal = 'Tigre';  //local
+    return animal;
+}
+
+d(animal);  //Loup car on est dans l'espace global et qu'on utilise la variable global disponible qui vaut Loup
+d(jungle());  // Tigre grâce au return qui se trouve à la fin de la foonction : il sort la valeur Tigre de la variable locale à la fonction
+d(animal); // Loup car pareil qu'au premier 
+
+// ----------
+d('<hr>');
+
+var oiseau = 'Aigle'; // Global
+function ciel(){
+    oiseau = 'Faucon';  // Global
+    return oiseau;
+}
+
+d(oiseau); // Aigle car on utilise la première variable global disponible qui vaut Aigle
+d(ciel()); // faucon grâce à return de la fonction.  MAIS on exécutant celle-ci on a changé le contenu de la variable global pour y mettre Faucon!
+d(oiseau);  // Par conséquent la variable oiseau affichera FAUCON
+
+
+// -----------------------
+// 14- Les arrays 
+//------------------------
+document.write('<h2>14- Les arrays </h2>');
+// Un array, ou tableau en français, est un objet qui contient plusieurs valeurs, appelés items. Chaque élément est accessible au moyen d'un indice (ou index) dont la numérotation commennce à partir de 0.
+
+// Déclaration d'un array :
+var monTableau = ['Emilie', 'Magalie', 'Zakir', 'Elric', 96];  // déclaration d'un array qui contient des strings et un number (version conventionnelle la plus utilisée). Chaque élément a un indice : "Emilie" le 0, puis "Magalie" 1, et ainsi de suite.
+
+
+// Accéder à un item (ou élément) de l'array :
+d(monTableau[0]);  // Affiche l'élément de valeur Emilie.
+
+// Remplacer la valeur "Elric" par la valeur "Alphonse"
+monTableau[3] = 'Alphonse';  // on modifie la valeur positionnée à l'indice 3 pour y mettre "Alphonse"
+d(monTableau[3]);  // affiche Alphonse
+
+// Mesurer le nombre d'éléments d'un array :
+d(monTableau.length);  // Affiche 5 correspondant aux nombres d'éléments du tableau
+
+// Parcourir un array avec une boucle for :
+for(i = 0; i < monTableau.length; i++) {
+    d(monTableau[i]);  // la variable i prend successivement les valeurs de 0 à 4 inclus. monTableau[i] permet de permet de parcourir chque indice de 0 à 4.
+}
+
+// ----------
+// Array multidimensionnel :
+// Un array multidimensionnel est un tableau qui contient un ou plusieurs autres tableau.
+
+var deuxDimensions = [ ['Fraise', 'Pomme', 'Banane'], ['Tomates', 'Carottes', 'Courgettes'] ];
+d(deuxDimensions[0][2]);  // pour accéder à la valeur "banane", je vais d'abord à l'indice 0 du tableau deuxDimensions puis à l'intérieur je vais à l'indice 2.
+
+document.write(deuxDimensions[0][2] + ' et des ' + deuxDimensions[1][1]);  // affiche banane suivi de carottes
+
+// ---------
+// Exercice : créer un array avec les tailles S, M, L, et XL. À l'aide d'une boucle for, afficher un menu déroulant avec les tailles provenant de l'array, à l'intérieur.
+var tailles = [ 'Small', 'Medium', 'Large', 'Extra Large'];
+document.write('<select>');
+for(var i = 0; i < tailles.length ; i++){
+    document.write('<option>' + tailles[i] + '</option>');
+}
+document.write('</select>');
+
+// -----------
+// Pour ajouter ou supprimer des valeurs au début ou à la fin d'un array :
+
+tailles.push('XXL');  //ajoute "XXL" à la fin de l'array tailles
+console.log(tailles);
+
+tailles.unshift('XS');  // Ajoute "XS" au début de l'array tailles
+console.log(tailles);
+
+// le contraire de push, c'est pop :
+tailles.pop();       // retire le dernier élément de l'array tailles
+console.log(tailles);
+
+// le contraire de unshift, c'est shift :
+tailles.shift();  // retire le premier élément de l'array tailles
+console.log(tailles);
+
+// -----------------------
+// 15- Les objets 
+//------------------------
+document.write('<h2>15- Les objets </h2>');
+
+/*
+Un objet est un ensemble de propriétés qui correspondent à l'association d'un nom et d'une valeur. Cette valeur peut-être de n'importe quel type (string, boolean, number...).
+
+De plus, la valeur de la propriété peut-être une fonction. Dans ce cas cette propriété s'appelle une méthode (il s'agit simplement d'une fonction dans un objet).
+
+Les propriétés et les méthodes d'un objet s'appellent les "membres" de cet objet.
+*/
+
+
+// Création d'un objet :
+
+var personnage = {
+    nom : 'Tintin',    // paire "propriété : valeur" suivie d'une ","
+    animal : 'Chien',
+    amis : ['Haddock', 'Tournesol', 'Dupont & Dupond'],
+    age : 10    // par convention pas de "," au dernier élément
+};   // on termine bien l'instruction avec un ";"
+
+// Accéder à la valeur d'une propriété d'un objet :
+d(personnage.nom);   // affiche Tintin. on accède à une propriété d'un objet en écrivant le nom de l'objet puis un "." puis la propriété.
+
+d(personnage['nom']);  // affiche aussi Tintin. on peut utiliser la notation entre [] pour accéder à une proprété d'un  objet.
+
+// Remplissage d'une propriété
+personnage.animal = 'Milou';  // change la valeur de la propriété animal pour y mettre "Milou"
+// ou encore :
+personnage['animal'] = "Milou";
+
+// pour afficher Tournesol :
+d(personnage.amis[1]); // pou accéder à Tournesol on va à la propriété "amis" de personnage avec un "." puis on va à l'indice [1] du tableau qui s'y trouve
+d(personnage['amis'][2]); // de la même manière qu'avec Milou, je peux utiliser la notation entre [] pour y accéder à la propriété "amis"
+
+
+// ----------
+// Création d'un objet avec un eméthode :
+var maVoiture = {
+    marque : 'Mercedes',
+    couleur : 'noire',
+    motorisation : {
+        energie : 'diesel',
+        puissance : '110CV',
+        grantie : true
+    },
+    afficherOrigine : function () {   // afficherOrigine est une "methode" de maVoiture
+        document.write('Origine Allemande <br>');
+    }
+};
+// on identifie les méthodes au mot clé "function" qui permet d'y mettre le code qu'elles doivent exécuter (tout comme une fonction).
+
+d(maVoiture.marque);  // affiche Mercedes
+d(maVoiture.couleur);  // affiche noire
+maVoiture.afficherOrigine();  // appel de la méthode "afficherOrigine()" de l'objet maVoitureécrite avec sa paire de (). affiche "Origine Allemande"
+
+d(maVoiture.motorisation['energie']);
+d(maVoiture.motorisation.energie);  // Ces 2 syntaxes pour accédeer à la  propriété energie qui se situe dans la propriété motorisation de l'objet maVoiture. Affiche "diesel"
+
+d('<hr>');
+// ------------
+// La boucle for in
+// La boucle for in permet de parcourir les objets et de récupérer tous les membres (= informations) qui y sont contenus.
+
+// Pour l'exemple nous allons parcourir l'objet qui s'appelle maVoiture.motorisation :
+for (var membre in maVoiture.motorisation) {
+    d(membre + ' a pour valeur ' + maVoiture.motorisation[membre]  );
+}  // membre s'appelle un "référent" : c'est sa place dans la syntaxe du for...in qui détérmine que "membre" récupère le nom des proprétés à chaque tour de boucle. Ainsi, maVoiture.motorisation[membre] permet de récupérer la valeur correspondant à la propriété contenue dans "membre". Note : on ne met pas de quotes à membre dans les [] car il s'agit d'une variable. 
+
+// -----------------------
+// 16- Propriété et méthodes de l'objet string 
+//------------------------
+document.write('<h2>16- Propriété et méthodes de l\'objet string </h2>');
+
+// propriété length :
+animal = 'Loup';
+d(animal.length)  // affiche 4 le nombre de caractères du string contenu dans la variable animal
+
+// méthode trim() :
+
+var adresse = '    16 rue de seine    ';
+d('adresse avec les espaces : ' + adresse.length);
+d('adresse sans les espaces : ' + adresse.trim().length);   // la méthode trim() supprime les espaces en dévut et à la fin de chaîne (utile pour nettoyer les données d'un formulaire)
+
+// Notez qu'une méthode comporte toujours des ().
+
+// ---------------
+// Trouver des ressources sur le net :
+// Le site de référence du JS : MDN
+// https://developer.mozilla.org/fr
+
+// Pour aller plus loin :
+// Openclassrooms.com
+// w3school.com
+// Codecademy.com   cours, forum, exercices
