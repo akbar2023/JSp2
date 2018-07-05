@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+        .rose{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <button id="bouton">Déplacer le carré</button>
+
+    <div class="rose"></div>
+
+    <script>
+    // La méthode addEventListener :
+    // En cliquant sur le bouton le carré se déplace et change de couleur.
+
+    // Problématique : quand on met plusiers évènements identiques sur le même bouton, dans la syntaxe vu jusqu'ici, seul le dernier est pris en compte...
+
+    var carre = document.querySelector('.rose');
+    var bouton = document.querySelector('#bouton');
+    var leftPosition = 0; // valeur de la position left du carré
+
+    function deplacement() {
+        leftPosition += 10;  // augmente la valeur de la variable de +10
+        carre.style.left = leftPosition + 'px';
+    }
+
+    function couleur() {
+        carre.style.backgroundColor = 'green';  // les propriétés CSS qui comporte des tirets "-" : on enlève ce tiret et on met un majuscule
+    }
+
+    // ..
+    // bouton.onclick = deplacement;  // on écrit la fonction sans sa paire de () sinon elle est appelée et exécutée immédiatement sans attendre l'ordre du clic dont elle dépend
+
+    // bouton.onclick = couleur;  // on constate que le carré devient jaune mais ne se déplace plus, car c'est le dernier évènement qui prévaut avec cette syntaxe onclick.
+
+    // Pour s'en sortir on utilise addEventListener :
+
+    bouton.addEventListener('click', deplacement);
+    bouton.addEventListener('click', couleur);  // l'évènement click s'écrit sans le "on", et la fonction couleur sans sa paire () pour ne pas qu'elle s'exécute immédiatement. La fonction couleur est appelé une fonction CALLBACK car elle est passée en argument (= en paramètre) d'une autre fonction , ici dans addEventListener(). En effet elle attend l'ordre de cette dernière pour s'exécuter.
+
+    // addEventListener() veut dire littéralement "ajouter un écouteur d'évènement". Cela signifie que l'on ajoute un évènement (ici au bouton).
+
+    //  Cette méthode est utile aussi si vous utilisez des plugins ou des bibliothèques js qui font appel à des évènements identiques aux vôtres.
+    
+    //----------
+    // On peut aussi écrire une fonction anonyme directement dans addEventListener :
+    bouton.addEventListener('click', function() {
+        carre.style.border = '1px solid red'
+    });
+
+
+
+
+
+
+
+
+
+    
+    </script>
+
+
+
+    
+</body>
+</html>
