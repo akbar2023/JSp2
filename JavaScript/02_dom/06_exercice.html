@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form</title>
     <style>
+        input{
+            margin: 10px;
+        }
         
     </style>
 
@@ -13,11 +16,11 @@
 </head>
 <body>
     <form method="" action="">
-        <label>Pseudo</label>
-        <input type="text" name="pseudo" id="pseudo" class="focus">
+        <label>pseudo :</label> 
+        <input type="text" id="myInput" onfocus="focusFunction()" onblur="blurFunction()">
         <br>
-        <label for="">Mot de passe</label>
-        <input type="password" name="mdp" id="mdp" class="focus">
+        <label>Mot de passe :</label> 
+        <input type="password" id="myInput1" onfocus="focusFunction1()" onblur="blurFunction1()">
         <br>
         <input type="submit" value="Se connecter">
     </form>
@@ -27,12 +30,22 @@
     //     Exercice : Lorsque vous-êtes en focus (= évènement "focus") sur un input, sa bordure devient rouge. Puis lorsque vous êtes en blur (= évènement "blur") sur un input, sar bordure redevient normale. Utilisez addEventListener.
     
 
-    var input1 = document.getElementById('pseudo');
-    var input2 = document.getElementById('mdp');
+    function focusFunction() {
+    document.getElementById("myInput").style.border = "1px solid red";
+}
 
+    function blurFunction() {
+    document.getElementById("myInput").style.border = "1px solid #666";
+}
 
-        
-    document.querySelector('#pseudo').style.border = '2px solid red';
+    function focusFunction1() {
+    document.getElementById("myInput1").style.border = "1px solid red";
+}
+
+    function blurFunction1() {
+    document.getElementById("myInput1").style.border = "1px solid #666";
+}
+
     
     
     
