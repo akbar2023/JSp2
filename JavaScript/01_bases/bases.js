@@ -753,7 +753,7 @@ d(animal.length)  // affiche 4 le nombre de caractères du string contenu dans l
 
 var adresse = '    16 rue de seine    ';
 d('adresse avec les espaces : ' + adresse.length);
-d('adresse sans les espaces : ' + adresse.trim().length);   // la méthode trim() supprime les espaces en dévut et à la fin de chaîne (utile pour nettoyer les données d'un formulaire)
+d('adresse sans les espaces : ' + adresse.trim().length);   // la méthode trim() supprime les espaces au début et à la fin de chaîne (utile pour nettoyer les données d'un formulaire)
 
 // Notez qu'une méthode comporte toujours des ().
 
