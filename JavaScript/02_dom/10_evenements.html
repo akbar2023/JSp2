@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liste des événements</title>
+
+    <style>
+        .height{
+            padding: 40px;
+            border: 1px solid;
+        }
+    
+    </style>
+
+    <div class="height">
+
+        <div class="height">
+
+            <div class="height">
+
+                Texte
+
+            </div>
+
+        </div>
+    
+    </div>    <div id="message"></div>
+</head>
+<body>
+ 
+
+<script>
+    /*
+    Liste des principaux événements sans le "on" :
+
+    // Souris :
+    click => quand on clique
+    dblclick => quand on double-clique
+
+    mouseover => quand le curseur de la souris entre sur un élément (les éléments enfants ne sont pas inclus dans cette zone : mouseover se décleche à l'entrée de CHAQUE élément)
+
+    mouseout => quand le curseur de la souris quitte un élément (les éléments enfants NE sont PAS inclus dans cette zone : mouseout se déclenche à la sortie de chaque élément)
+
+    mouseenter => quand la souris passe par dessus la zone qu'occupe un élément (les éléments enfants sont INCLUS dans cette zone : mouseenter ne se décleche qu'UNE fois)
+
+    mouseleave => quand la souris sort de cette zone(les éléments enfants sont INCLUS dans cette zone : mouseleave ne se déclenche qu'UNE fois)
+
+    */
+
+    document.querySelector('.height').addEventListener('mouseover', function(){
+
+    message.innerHTML += '<br> action';
+});
+
+    /*
+    mousedown => quand on abaisse un bouton de la souris (lors du clique)
+    mouseup => quand on relève un bouton de la souris
+
+    // Formulaire :
+    focus  => quan on active un input de la souris ou tabulation
+    blur => quand on désactive un input de la souris ou tabulation
+    change => quand on change la saisie d'un input, un select, ou un textarea
+    submit => quand on soumet un formulaire avec l'input type "submit"
+
+    // Clavier :
+    keydown : quand on enfonce une touche du clavier
+    keyup => quand je relache
+    keypress => combinaison de keydown et de keyup
+
+    // Fenêtre du navigateur :
+    scroll  => défilement de la fenêtre
+    resize  => redimonsionnement de la fenêtre
+
+    // Document HTML :
+    DOMContentLoaded  => quand le document html a été complètement chargée et analysée par le DOM sans attendre que les feuilles de style et les images soient totalement chargée :
+    */
+    document.addEventListener('DOMContentLoaded', function() {
+        // tout votre code JS
+        console.log('DOM entièrement chargé et analysé');
+    });
+
+
+
+
+   
+   
+</script>
+
+
+</body>
+</html>
