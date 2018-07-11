@@ -11,6 +11,7 @@ Implémentez le JavaScript de cette galerie d'images :
 <head>
     <meta charset="UTF-8">
     <title>Galerie</title>
+    <script src="jquery.js"> </script>
     <style>
         body {
                 background: #12121C;
@@ -80,13 +81,30 @@ Implémentez le JavaScript de cette galerie d'images :
 
 
 <script>
-	var bet = document.querySelectorAll('.thumbnail');
-	for (var i = 0; i < bet.length; i++){
-		bet[i].addEventListener(function(){
-			this[i].style.margin = '50px';
-		});
-			}
-	
+	$(function(){
+       
+        $('.thumbnail').click(function(){
+            var att = $(this).attr('src'); // variable pour le changement de la source
+            $('#galerie img').attr('src', att );  // changement de la src par celui sur lequel on a cliqué
+
+            var alt = $(this).attr('alt');  // var pour le alt
+            $('#galerie img').attr('alt', alt);  // on affecte le alt de celui sur lequel on clic
+
+            $('.titre').text(alt);  // titre dynamique qui part de l'alt
+
+            $('.selected').removeClass('selected');
+            $(this).addClass('selected');
+            
+        });
+
+
+
+
+
+
+
+
+    }); // fin du document jQuery script
 
 </script>
 </body>
