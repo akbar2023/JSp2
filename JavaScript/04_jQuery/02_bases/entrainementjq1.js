@@ -132,7 +132,7 @@ $(function(){  // ce code s'exécutera une fois le document html totalement char
 
             $(this).text('Ce <h4> a pour indice le numéro ' + indice);  // ajoute le texte eu h4  sue lequel on se trouve précisément à chaque tour de boucle (=$(this))
             
-
+            console.log(indice);
             // on ajoute la classe "rouge" aux h4 d'indice pair :
             if ( indice % 2 == 0 ) {  // signifie que si indice est pair la classe "rouge" est attribuée
                 $(this).addClass('rouge');
