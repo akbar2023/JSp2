@@ -31,9 +31,6 @@ $(function(){
             $('#form').text('Super ! votre deande a bien été pris en compte !');
         }
 
-
-
-
     });  // fin submit
 
     chat.change(function(){
