@@ -52,7 +52,7 @@ var maBoite = 10; // on peut déclarer et afficher une variable en même temps (
 
 //----------
 
-monAutreBoite = 'bonjour';  // cette écriture est possible (déclaration sans le mot clé "var"), mais ce n'est pa conventionnel. De plus, dans une fonction cela n'a pas la même signification (voir chapitre "portée des variables")
+monAutreBoite = 'bonjour';  // cette écriture est possible (déclaration sans le mot clé "var"), mais ce n'est pas conventionnel. De plus, dans une fonction cela n'a pas la même signification (voir chapitre "portée des variables")
 
 document.write('<br>');
 
@@ -251,7 +251,7 @@ if (a > b && b > c) {
 // if avec OR :
 if (a == 9 || b > c) {
     // si a est égal (==) à 9 OU b est supérieur à c, on entre dans les accolades qui suivent :
-    document.write('Ok pour au moins un  des deux conditions <br>')
+    document.write('Ok pour au moins un  des deux conditions <br>');
 }
 
 // ---------
@@ -261,10 +261,10 @@ if(a == 8){
 document.write('a est égal à 8');
 } else if (a != 10){
 // sinon si a est différent de 10, on exécute ce qui suit :
-document.write('a est différent de 10')
+document.write('a est différent de 10');
 } else{
     // sinon, c'est que les deux conditions sont fausses, je me trouve dans la condition par défaut
-document.write('Les deux conditions sont fausses <br>')
+document.write('Les deux conditions sont fausses <br>');
 }
 
 // Note : jamais de () après un else. Le else n'est pas obligatoire si il est vide. En revanche, après un if il y a toujours une condition.
@@ -274,7 +274,7 @@ document.write('Les deux conditions sont fausses <br>')
 
 var test = 3 < 1;
 
-console.log('test vaut : ' + test);  // pour vérifier que tes tvaut false
+console.log('test vaut : ' + test);  // pour vérifier que test vaut false
 
 if (!test) {
     // le "!" est une négation qui inverse le sens du booléen : test seul valant false, !test vaut donc true. La condition finale étant donc évaluée true on entre dans les accolades :
@@ -322,21 +322,21 @@ document.write(origine);
 // NaN pour Not a Number est une valeur utilisée pour representer une "quantité" qui n'est pas un nombre en javascript.
 console.log( 2 * 'azerty');
 
-// Les opérateurs d'égalité (== ou ===) ne peuvent pas être utilisés poir tester si une valeur est NaN. il faut utiliser isNaN() :
+// Les opérateurs d'égalité (== ou ===) ne peuvent pas être utilisés pour tester si une valeur est NaN. il faut utiliser isNaN() :
 
 var annee = '2018'; // string
 if ( isNaN(annee) ) {
     // condition fausse car 2018 après conversion devient un number. On entre donc dans le else.
     document.write('ce n\'est pas un number après conversion <br>');
 } else {
-    document.write('c\est un number après conversion <br>');
+    document.write('c\'est un number après conversion <br>');
 }
 
 // le contraire :
 var annee = 'juin 2018'; // string
 
 if ( isNaN(annee) ) {
-    // ici la condition est vraie . on entre donc ici :
+    // ici la condition est vraie . on entre donc à la suite :
     document.write('ce n\'est pas un number après conversion <br>');
 } else {
     document.write('c\est un number après conversion <br>');
@@ -348,7 +348,7 @@ if ( isNaN(annee) ) {
 Demandez l'âge de l'internaute dans un prompt.
 Si la réponse est vide (on compare avec des quotes vides SANS espace), on affiche "vous n'avez pas répondu."
 Si la réponse n'est pas un number ,  on affiche "vous n'avez pas indiqué un nombre."
-Si la répoinse est correcte, on affiche "vous avez indiqué avoir X ans" ou "X est l'âge de l'internaute".
+Si la réponse est correcte, on affiche "vous avez indiqué avoir X ans" ou "X est l'âge de l'internaute".
 */
 
 var age = prompt('Quel âge avez-vous ?');
@@ -375,7 +375,7 @@ document.write('<h2>9- Synthèse des opérateurs </h2>');
     !== pour strictement différent en valeur ET en type
     
     > pour plus grand que 
-    > pou plus petit que
+    > pour plus petit que
     >= pour supérieur ou égal
     <= pour inférieur ou égal
 
@@ -441,7 +441,7 @@ while ( i <= 5) { // ici entre parenthes se situe la condition d'entrée dans la
     i++;  // on incrémente i de +1
 }
 document.write('<hr>');
-// Exercice : sans modifier la condition de la boucle while précédente, vous la complétez pour ne pas afficher les trois petitd "---" après le 5
+// Exercice : sans modifier la condition de la boucle while précédente, vous la complétez pour ne pas afficher les trois petits "---" après le 5
 
 var i = 0;
 while ( i <= 5) { // ici entre parenthes se situe la condition d'entrée dans la boucle "while". Elle signifie "tant que i est inférieur ou égal à 5"
@@ -523,7 +523,15 @@ maFonction2();  // en appelant cette fonction, j'exécute le code qui s'y trouve
 function direBonjour(prenom, nom) {  // prenom et nom sont des paramètres de la fonction, séparés par une virgule et qui attendent une valeur
     document.write('<p>Bonjour ' + prenom + ' ' + nom + ', comment allez-vous ?</p>');
 }
-direBonjour('Alice', 'Dupont');  // la valeur "Alice" qui est en 1ère position va être affectée au paramètre prénom et la valeur "Dupont" va être affectée au paramètre nom. Ainsi la fonction direBonjour peut afficher un message personnalisé.
+direBonjour('akbar', 'khan');  // la valeur "Alice" qui est en 1ère position va être affectée au paramètre prénom et la valeur "Dupont" va être affectée au paramètre nom. Ainsi la fonction direBonjour peut afficher un message personnalisé.
+
+var prenom2, nom2;
+prenom2 = prompt('Quel est ton prenom ?');
+nom2 = prompt('Quel est ton nom ?');
+function direBonjour2() {
+    document.write('Hello ' + prenom2 + ' ' + nom2 + ', How are you doing ? <br>');
+}
+direBonjour2(); // c'est une fonction que j'ai écrit en dehors des cours qui demande le nom et le prenom de l'utilisateur ensuite lui dit bonjour avec ses noms... (plus intéractif)
 
 
 // ---------
@@ -575,7 +583,7 @@ d('La somme de 2 + 4 est égal à ' + somme(2 , 4));  // On récupère ic la val
 //------------------------
 document.write('<h2>13- La portée des variables </h2>');
 
-/*  Selon l'endroit et la façon dont une variable est déclarée, elle pourra être accessible partout dans le script ou uniquement dans une portion limitée du code des fonctions. On parle de protée des variables (Scope en anglais).
+/*  Selon l'endroit et la façon dont une variable est déclarée, elle pourra être accessible partout dans le script ou uniquement dans une portion limitée du code des fonctions. On parle de "protée des variables" (Scope en anglais).
 
 -Une variable déclarée SANS le mot clé "var" (façon implicite) : elle est accessible PARTOUT dans le script, y compris au sein des fonctions : elle est dite GLOBAL
 
@@ -613,7 +621,7 @@ d(oiseau);  // Par conséquent la variable oiseau affichera FAUCON
 // 14- Les arrays 
 //------------------------
 document.write('<h2>14- Les arrays </h2>');
-// Un array, ou tableau en français, est un objet qui contient plusieurs valeurs, appelés items. Chaque élément est accessible au moyen d'un indice (ou index) dont la numérotation commennce à partir de 0.
+// Un array, ou tableau en français, est un objet qui contient plusieurs valeurs, appelés items. Chaque élément est accessible au moyen d'un indice (ou index) dont la numérotation commence à partir de 0.
 
 // Déclaration d'un array :
 var monTableau = ['Emilie', 'Magalie', 'Zakir', 'Elric', 96];  // déclaration d'un array qui contient des strings et un number (version conventionnelle la plus utilisée). Chaque élément a un indice : "Emilie" le 0, puis "Magalie" 1, et ainsi de suite.
@@ -627,7 +635,7 @@ monTableau[3] = 'Alphonse';  // on modifie la valeur positionnée à l'indice 3 
 d(monTableau[3]);  // affiche Alphonse
 
 // Mesurer le nombre d'éléments d'un array :
-d(monTableau.length);  // Affiche 5 correspondant aux nombres d'éléments du tableau
+d(monTableau.length);  // Affiche 5, correspondant aux nombres d'éléments du tableau
 
 // Parcourir un array avec une boucle for :
 for(i = 0; i < monTableau.length; i++) {
