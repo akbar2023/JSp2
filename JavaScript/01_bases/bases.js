@@ -83,7 +83,7 @@ var prenom = 'Sylvie',
 var fruit = 'Pomme';
 fruit += ' Fraise' // on ajoute la chaîne de caractère " Fraise" à "Pomme" déjà existante dans la variable fruit avec l'opérateur += (sans espace)
 
-document.write(fruit); // affiche PommeFraise 
+document.write(fruit); // affiche Pomme Fraise 
 document.write('<br>');
 
 //----------
@@ -716,7 +716,7 @@ d(personnage['amis'][2]); // de la même manière qu'avec Milou, je peux utilise
 
 
 // ----------
-// Création d'un objet avec un eméthode :
+// Création d'un objet avec une méthode :
 var maVoiture = {
     marque : 'Mercedes',
     couleur : 'noire',
