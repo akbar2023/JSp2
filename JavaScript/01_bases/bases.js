@@ -133,7 +133,7 @@ document.write('<h2>5- Constante</h2>');
 
 // Définition : Les constantes sont comme des variables dont la valeur ne peut pas être modifié. Elles permettent de "protéger" cette valeur nécessaire au bon fonctionnement du script.
 
-const CHANGE_PAS = 'ma constante impossibles à modifier'; // par convention entre développeur on écrit les constantes en majuscule et avec un "_" si besoin
+const CHANGE_PAS = 'ma constante impossibles à modifier'; // par convention entre développeur on écrit les constantes en majuscule et avec un underscore "_" si besoin
 
 document.write(CHANGE_PAS); // affiche le contenu de la constante
 document.write('<br>');
