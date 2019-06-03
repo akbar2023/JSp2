@@ -339,7 +339,7 @@ if ( isNaN(annee) ) {
     // ici la condition est vraie . on entre donc à la suite :
     document.write('ce n\'est pas un number après conversion <br>');
 } else {
-    document.write('c\est un number après conversion <br>');
+    document.write('c\'est un number après conversion <br>');
 }
 
 // ---------
